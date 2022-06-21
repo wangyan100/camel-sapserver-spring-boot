@@ -1,0 +1,31 @@
+spring.main.register-shutdown-hook: false
+
+sap:
+  system:
+    name: TESTABC
+jco:
+    client:
+        # 
+        ashost: 192.168.10.233
+        client: 100
+        lang: en
+        sysnr: 01
+        user:  username
+        passwd: password
+        network: lan
+        
+    server:
+        connection_count: 2
+        gwhost: 192.168.10.42
+        gwserv: 3300
+        progid: ZPID_XXX_TS
+        repository_destination: does_not_matter
+        
+        rfc:
+            name: STFC_CONNECTION        
+            exportparam:
+                exist: true
+            importparam:
+                exist: true
+            tableparam:
+                exist: true
