@@ -1,4 +1,4 @@
-package org.yw;
+package sample.camel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

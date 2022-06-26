@@ -1,4 +1,4 @@
-package org.yw;
+package sample.camel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,8 +11,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.yw.util.MyDestinationDataProvider;
-import org.yw.util.MyServerDataProvider;
 
 import com.sap.conn.jco.JCoException;
 import com.sap.conn.jco.ext.DestinationDataProvider;
@@ -26,6 +24,9 @@ import com.sap.conn.jco.server.JCoServerFactory;
 import com.sap.conn.jco.server.JCoServerFunctionHandler;
 import com.sap.conn.jco.server.JCoServerState;
 import com.sap.conn.jco.server.JCoServerStateChangedListener;
+
+import sample.camel.util.MyDestinationDataProvider;
+import sample.camel.util.MyServerDataProvider;
 
 @Component("simpleAbapConnectorServer")
 public class SimpleAbapConnectorServer

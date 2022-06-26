@@ -1,4 +1,4 @@
-package org.yw;
+package sample.camel;
 
 import java.util.Iterator;
 import org.apache.camel.ProducerTemplate;
@@ -7,13 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.yw.util.XMLUtil;
 
 import com.sap.conn.jco.JCoField;
 import com.sap.conn.jco.JCoFunction;
 import com.sap.conn.jco.JCoParameterList;
 import com.sap.conn.jco.server.JCoServerContext;
 import com.sap.conn.jco.server.JCoServerFunctionHandler;
+
+import sample.camel.util.XMLUtil;
 
 @Component("abapCallHandler")
 public class AbapCallHandler implements JCoServerFunctionHandler {

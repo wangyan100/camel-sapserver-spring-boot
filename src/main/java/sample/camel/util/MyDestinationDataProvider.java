@@ -1,4 +1,4 @@
-package org.yw.util;
+package sample.camel.util;
 
 
 import java.util.HashMap;

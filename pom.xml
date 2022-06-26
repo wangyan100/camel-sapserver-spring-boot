@@ -3,45 +3,46 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.1.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>org.yw</groupId>
-	<artifactId>camel-sapserver-spring-boot</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<name>Camel SB Examples :: Spring Boot</name>
-	<description>An example showing how to work with Camel and Spring Boot</description>
-	<properties>
-		<category>Data Integration Software</category>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<camel-version>3.4.2</camel-version>
-		<mssql-jdbc-version></mssql-jdbc-version>
-		<maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
-		<jdk-version>11</jdk-version>
-		<mssql-jdbc-version>6.1.0.jre8</mssql-jdbc-version>
-		<mysql-jdbc-version>6.0.6</mysql-jdbc-version>
-		<jasypt-version>3.0.3</jasypt-version>
-		<jackson-version>2.12.3</jackson-version>
-		<mockito-version>3.11.0</mockito-version>
-		<jaxb-version>2.3.0</jaxb-version>
-	</properties>
+    <parent>
+        <groupId>org.apache.camel.springboot.example</groupId>
+        <artifactId>examples</artifactId>
+        <version>3.18.0-SNAPSHOT</version>
+    </parent>
+    
+	<groupId>org.apache.camel.springboot.example</groupId>
+	<artifactId>camel-example-spring-boot-sapjcoserver</artifactId>
+	<name>Camel SB Examples :: SAP JCOServer</name>
+	<description>An example showing how to work with Camel,SAP JCOServer and Spring Boot</description>
+    <properties>
+        <category>SAP</category>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
-	<dependencyManagement>
-		<dependencies>
-			<!-- Camel BOM -->
-			<dependency>
-				<groupId>org.apache.camel.springboot</groupId>
-				<artifactId>camel-spring-boot-dependencies</artifactId>
-				<version>${camel-version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+    <dependencyManagement>
+
+        <dependencies>
+            <!-- Spring Boot BOM -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Camel BOM -->
+            <dependency>
+                <groupId>org.apache.camel.springboot</groupId>
+                <artifactId>camel-spring-boot-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+    
 	<dependencies>
 		<!-- Spring Boot -->
 		<dependency>
@@ -55,44 +56,12 @@
 			</exclusions>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>${jaxb-version}</version>
-		</dependency>
-		<!--Artemis JMS broker -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-artemis</artifactId>
-		</dependency>
-
 		<!-- Camel -->
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.camel.springboot</groupId>
-			<artifactId>camel-jms-starter</artifactId>
-		</dependency>
 
-		<dependency>
-			<groupId>org.apache.camel.springboot</groupId>
-			<artifactId>camel-jackson-starter</artifactId>
-		</dependency>
-
-		<!-- Add the Artemis JMS client library which will include the ActiveMQConnectionFactory -->
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>artemis-jms-client</artifactId>
-		</dependency>
-
-		<!-- Add the ability to convert JSON to a plain old Java object (POJO) -->
-		<!-- We use the `-starter` version of the component in Spring Boot -->
-		<dependency>
-			<groupId>org.apache.camel.springboot</groupId>
-			<artifactId>camel-jackson-starter</artifactId>
-		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
@@ -117,51 +86,36 @@
 			<systemPath>${basedir}/lib/sapidoc3.jar</systemPath>
 		</dependency>
 
-		<!-- jasypt encode/decode -->
-		<dependency>
-			<groupId>com.github.ulisesbocchio</groupId>
-			<artifactId>jasypt-spring-boot-starter</artifactId>
-			<version>${jasypt-version}</version>
-		</dependency>
-
-		<!-- test -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		 <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-test-spring</artifactId>
+		
+		  <!-- test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-test-spring-junit5</artifactId>
-			<scope>test</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>${mockito-version}</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- JMX is needed for route coverage testing -->
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-management</artifactId>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-spring-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+	
 	</dependencies>
 
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

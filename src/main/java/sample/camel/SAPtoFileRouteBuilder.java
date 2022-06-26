@@ -1,4 +1,4 @@
-package org.yw;
+package sample.camel;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;
