@@ -1,4 +1,4 @@
-# Integrate sap JCOServer with Springboot and Apache Camel 
+# Integrate sap JCOServer with Springboot and Apache Camel  
 
 ### The usecase
 
